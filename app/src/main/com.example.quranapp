@@ -1,0 +1,54 @@
+
+package com.example.quranapp
+
+import android.app.Activity
+import android.os.Bundle
+import android.graphics.Typeface
+import android.view.Gravity
+import android.widget.*
+
+class MainActivity : Activity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val layout = LinearLayout(this)
+        layout.orientation = LinearLayout.VERTICAL
+        layout.gravity = Gravity.CENTER
+        layout.setPadding(24, 24, 24, 24)
+        layout.setBackgroundColor(0xFFF7F5EF.toInt())
+
+        val title = TextView(this)
+        title.text = "القرآن الكريم"
+        title.textSize = 32f
+        title.gravity = Gravity.CENTER
+        title.typeface = Typeface.DEFAULT_BOLD
+        title.setTextColor(0xFF174D3A.toInt())
+
+        layout.addView(title)
+
+        val subtitle = TextView(this)
+        subtitle.text = "Quran Sharif"
+        subtitle.textSize = 26f
+        subtitle.gravity = Gravity.CENTER
+        subtitle.setPadding(0, 20, 0, 30)
+        subtitle.setTextColor(0xFF174D3A.toInt())
+
+        layout.addView(subtitle)
+
+        val button = Button(this)
+        button.text = "Read Quran"
+
+        button.setOnClickListener {
+            Toast.makeText(
+                this,
+                "Quran reading section coming soon",
+                Toast.LENGTH_LONG
+            ).show()
+        }
+
+        layout.addView(button)
+
+        setContentView(layout)
+    }
+}
